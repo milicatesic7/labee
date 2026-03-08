@@ -1,0 +1,130 @@
+.lab-run-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 150px 70px 300px 70px;
+  background-color: var(--bg-color);
+  gap: 40px;
+  background-image: url("./assets/import-bg.png");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100% auto;
+  background-color: var(--bg-color);
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 180px);
+  gap: 20px;
+  max-height: 600px;
+  overflow-y: visible;
+}
+
+.preview-box {
+  width: 180px;
+  height: 250px;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.preview-box-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+}
+
+.preview-box:hover {
+  transform: scale(1.02);
+}
+
+.preview-box.empty {
+  border: 2px dashed #ccc;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.uploaded-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lab-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btn-select {
+  background: white;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  border-radius: 30px;
+  padding: 10px 30px;
+  font-size: 25px;
+  font-family: var(--text-font);
+  transition: all 0.15s ease-in;
+}
+
+.btn-select:hover {
+  box-shadow: 0 3px 0 0 var(--green);
+}
+
+.btn-run {
+  background-color: var(--green);
+  font-family: var(--heading-font);
+  font-size: 20px;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 30px;
+  transition: all 0.15s ease-in;
+}
+
+.btn-run:hover {
+  background-color: var(--accent-color);
+}
+
+.report-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-family: var(--text-font);
+  font-size: 25px;
+  color: var(--primary-color);
+  cursor: pointer;
+  border-radius: 15px;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.report-item.active {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.report-item:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.page-label {
+  font-family: var(--text-font);
+  color: var(--primary-color);
+  text-align: right;
+  width: 100%;
+  display: block;
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.run-area {
+  display: flex;
+  height: max-content;
+  align-items: center;
+}

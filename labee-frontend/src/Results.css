@@ -1,0 +1,286 @@
+.results-container {
+  padding: 50px 70px;
+  background-color: var(--green);
+  display: flex;
+  justify-content: center;
+  min-height: 400px;
+  z-index: 10;
+}
+
+.results-card {
+  background-color: white;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 40px;
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+.lambda-text,
+.results-title {
+  font-family: var(--text-font);
+  font-size: 28px;
+  color: var(--primary-color);
+}
+
+.table-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.cells {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  flex: 2;
+}
+
+.cell {
+  background-color: #d9d9d9;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.divider {
+  width: 2px;
+  height: 120px;
+  background-color: var(--primary-color);
+  margin: 0 40px;
+  opacity: 0.5;
+}
+
+.row-result-value {
+  flex: 0.5;
+  font-size: 24px;
+  font-family: var(--text-font);
+  text-align: right;
+}
+
+.page-footer {
+  text-align: right;
+  font-family: var(--text-font);
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.report-one-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+.data-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: var(--text-font);
+  font-size: 18px;
+}
+
+.cell.mini {
+  width: 100px;
+  height: 35px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.cell.long {
+  width: 250px;
+  height: 35px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.result-highlight {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-top: 10px;
+}
+
+.results-hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 10px 0;
+}
+
+.final-box {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(var(--green-rgb), 0.05);
+  border-radius: 8px;
+}
+.table-wrapper {
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--text-font);
+  font-size: 14px;
+}
+
+.report-table th,
+.report-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.report-table th {
+  background-color: #f8f8f8;
+  font-weight: bold;
+}
+
+.sim-cell {
+  background-color: #f0f0f0; /* Siva boja za polja koja popunjava AI/Backend */
+  font-weight: bold;
+}
+
+.math-results {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.diffraction-block,
+.averages-block {
+  margin-top: 30px;
+}
+
+.diffraction-block h3,
+.averages-block h3 {
+  font-family: var(--text-font);
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.small-table {
+  max-width: 300px; /* Srednja tabela ne mora biti preko celog ekrana */
+}
+
+/* Opciono: boje za redove radi lakšeg čitanja */
+.report-table tr:nth-child(even) {
+  background-color: #fcfcfc;
+}
+
+.edit-controls-wrapper {
+  display: flex;
+  gap: 25px;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.edit-controls {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+/* Stil za Inpute */
+.cell-input,
+.table-input {
+  border: 1px solid transparent;
+  background: #f9f9f9;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-family: inherit;
+  width: 80px;
+  transition: all 0.3s;
+}
+
+/* Kada je editing upaljen, daj mu zeleni border da "vrišti" EDIT */
+.cell-input.editing,
+.table-input.editing {
+  border: 1px solid #4caf50;
+  background: white;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+}
+
+.btn-edit {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.btn-edit-text {
+  background: none;
+  border: none;
+  color: #555; /* Tamnije siva da se vidi na belom */
+  font-family: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-rerun-text {
+  background: none;
+  border: none;
+  border-bottom: 2px solid #333;
+  color: #333;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-rerun {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-rerun:hover {
+  transform: scale(1.05);
+}
+.results-card input.cell.mini.editing,
+.results-card input.table-input.editing {
+  border: 2px solid #4caf50 !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
+  color: #000 !important;
+  transform: translateY(-2px);
+  transition: all 0.2s ease-in-out;
+  cursor: text;
+}
+
+/* Stil za statične ćelije koje se ne edituju (rezultati) */
+.static,
+.sim-cell {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #666;
+}

@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{05C44CC3-2A7E-4436-BCF2-E7E8C9F63262}|labee2.pyproj|C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\frontend.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{05C44CC3-2A7E-4436-BCF2-E7E8C9F63262}|labee2.pyproj|solutionrelative:frontend.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05C44CC3-2A7E-4436-BCF2-E7E8C9F63262}|labee2.pyproj|C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\data_processing.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{05C44CC3-2A7E-4436-BCF2-E7E8C9F63262}|labee2.pyproj|solutionrelative:data_processing.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05C44CC3-2A7E-4436-BCF2-E7E8C9F63262}|labee2.pyproj|C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\gemini_service.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{05C44CC3-2A7E-4436-BCF2-E7E8C9F63262}|labee2.pyproj|solutionrelative:gemini_service.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05C44CC3-2A7E-4436-BCF2-E7E8C9F63262}|labee2.pyproj|C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\promptovi.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{05C44CC3-2A7E-4436-BCF2-E7E8C9F63262}|labee2.pyproj|solutionrelative:promptovi.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05C44CC3-2A7E-4436-BCF2-E7E8C9F63262}|labee2.pyproj|C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\labee2.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{05C44CC3-2A7E-4436-BCF2-E7E8C9F63262}|labee2.pyproj|solutionrelative:labee2.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frontend.py",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\frontend.py",
+              "RelativeDocumentMoniker": "frontend.py",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\frontend.py",
+              "RelativeToolTip": "frontend.py",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2026-03-08T18:52:51.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "data_processing.py",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\data_processing.py",
+              "RelativeDocumentMoniker": "data_processing.py",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\data_processing.py",
+              "RelativeToolTip": "data_processing.py",
+              "ViewState": "AgIAAJIBAAAAAAAAAAAqwMwBAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2026-03-08T18:52:51.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "gemini_service.py",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\gemini_service.py",
+              "RelativeDocumentMoniker": "gemini_service.py",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\gemini_service.py",
+              "RelativeToolTip": "gemini_service.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2026-03-08T18:52:51.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "promptovi.py",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\promptovi.py",
+              "RelativeDocumentMoniker": "promptovi.py",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\promptovi.py",
+              "RelativeToolTip": "promptovi.py",
+              "ViewState": "AgIAABYCAAAAAAAAAAAAAGoAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2026-03-08T18:52:52.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "labee2.py",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\labee2.py",
+              "RelativeDocumentMoniker": "labee2.py",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\labee2 (1)\\labee2\\labee2.py",
+              "RelativeToolTip": "labee2.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2026-03-08T18:52:53.019Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
