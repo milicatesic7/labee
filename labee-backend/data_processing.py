@@ -38,10 +38,6 @@ def difrakcija(response):
 
     data = json.loads(raw)
 
-    # =========================
-    # SECTION 1 – GRATING
-    # =========================
-
     grating = data["grating"]
 
     def transform_m(m_dict, m):
@@ -55,11 +51,9 @@ def difrakcija(response):
             theta_m = m_dict[color]["theta_m"]
             lambda_nm = m_dict[color]["lambda_nm"]
 
-            # računanje srednjeg ugla
             if theta_m == 0 and (theta_L or theta_D):
                 theta_m = (theta_L + theta_D) / 2
 
-            # računanje talasne dužine
             if lambda_nm == 0 and theta_m != 0:
 
                 theta_rad = math.radians(theta_m)
@@ -84,10 +78,6 @@ def difrakcija(response):
     m1 = transform_m(grating["m1"],1)
     m2 = transform_m(grating["m2"],2)
 
-    # =========================
-    # AVERAGE WAVELENGTH
-    # =========================
-
     avg = {}
 
     for color in ["blue","green","red"]:
@@ -108,10 +98,6 @@ def difrakcija(response):
     }
 
 
-    # =========================
-    # SECTION 2 – LASER
-    # =========================
-
     laser = data["laser"]
 
     ambient = laser["ambient_photocurrent_uA"]
@@ -128,7 +114,6 @@ def difrakcija(response):
         measured = row["measured_photocurrent_uA"]
         corrected = row["diffraction_photocurrent_uA"]
 
-        # računanje korigovane fotostruje
         if corrected == 0 and measured != 0:
             corrected = measured - ambient
 
@@ -145,10 +130,6 @@ def difrakcija(response):
         "orders": laser_result
     }
 
-
-    # =========================
-    # SCORE (accuracy)
-    # =========================
 
     score = 100
 
@@ -172,9 +153,6 @@ def difrakcija(response):
     if errors:
         score = max(0, round(100 - sum(errors)/len(errors),2))
 
-    # =========================
-    # FINAL RESULT
-    # =========================
 
     return {
         "grating": grating_result,
@@ -197,10 +175,6 @@ def gustina(response):
     gravity = data["gravity"]
 
     result = {}
-
-    # =====================
-    # LIQUID DENSITY
-    # =====================
 
     liquid = density["liquid"]
 
@@ -231,10 +205,6 @@ def gustina(response):
         }
     }
 
-    # =====================
-    # GRANULAR SOLID
-    # =====================
-
     granular = density["granular"]
 
     meas = granular["measurements"]
@@ -264,10 +234,6 @@ def gustina(response):
         }
     }
 
-    # =====================
-    # HYDROSTATIC METHOD
-    # =====================
-
     hydro = density["hydrostatic"]
 
     meas = hydro["measurements"]
@@ -294,10 +260,6 @@ def gustina(response):
             "final": res["final_rho_value"]
         }
     }
-
-    # =====================
-    # GRAVITY (PENDULUM)
-    # =====================
 
     meas = gravity["measurements"]
     res = gravity["results"]
@@ -330,10 +292,6 @@ def gustina(response):
         }
     }
 
-    # =====================
-    # SCORE
-    # =====================
-
     score = data["score"]["measurement_accuracy"]
 
     result["score"] = {
@@ -354,10 +312,6 @@ def process_lens(response):
     data = json.loads(raw)
 
     result = {}
-
-    # ======================
-    # DIRECT METHOD
-    # ======================
 
     direct = data["direct_method"]
 
@@ -388,10 +342,6 @@ def process_lens(response):
         }
     }
 
-    # ======================
-    # BESSEL METHOD
-    # ======================
-
     bessel = data["bessel_method"]
 
     D = bessel["measurements"]["D_mm"]
@@ -415,10 +365,6 @@ def process_lens(response):
             "final_f_value": bessel["results"]["final_f_value"]
         }
     }
-
-    # ======================
-    # DIVERGING LENS
-    # ======================
 
     diverging = data["diverging_lens"]
 
@@ -445,10 +391,6 @@ def process_lens(response):
             "final_fr_value": diverging["results"]["final_fr_value"]
         }
     }
-
-    # ======================
-    # SOUND (KUNDT TUBE)
-    # ======================
 
     sound = data["sound"]
 
