@@ -1,6 +1,4 @@
-﻿
-
-import gemini_service
+﻿import gemini_service
 import data_processing
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
@@ -20,8 +18,6 @@ app.add_middleware(
 )
 
 client = gemini_service.apikey()
-app = FastAPI()
-
 
 def picload(files):
     images = []
