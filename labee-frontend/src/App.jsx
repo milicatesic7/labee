@@ -3,7 +3,7 @@ import "./index.css";
 import { Hero } from "./Hero.jsx";
 import { Reports } from "./Reports.jsx";
 import { Import } from "./Import.jsx";
-import { Navbar } from "./Navbar.jsx";
+import { Footer } from "./Footer.jsx";
 
 export function App() {
   const importSectionRef = useRef(null);
@@ -20,7 +20,7 @@ export function App() {
       <div ref={importSectionRef}>
         <Import />
       </div>
-      <Navbar />
+      <Footer />
     </div>
   );
 }

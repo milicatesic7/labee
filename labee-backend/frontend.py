@@ -1,6 +1,4 @@
-﻿
-
-import gemini_service
+﻿import gemini_service
 import data_processing
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
@@ -20,8 +18,6 @@ app.add_middleware(
 )
 
 client = gemini_service.apikey()
-app = FastAPI()
-
 
 def picload(files):
     images = []
@@ -51,7 +47,6 @@ async def analyze(
     for img in images:
         print("Image filename:", img.filename)
 
-    # učitaj slike
     imgs = picload(images)
 
     print("Images converted to bytes:", len(imgs))
@@ -61,22 +56,18 @@ async def analyze(
             f.write(imgs[0])
         print("Saved first image as debug_image.png")
 
-    # koji je report
     exr = exnum(report)
 
     print("Exercise ID:", exr)
 
-    # Gemini analiza
     response = data_processing.analysis(client, imgs, exr)
 
     print("\nGemini raw response:")
     print(response.text)
 
-    # obrada rezultata
     result = data_processing.func[exr](response)
 
     print("\nProcessed result:")
     print(result)
 
-    # VRATI FRONTENDU
     return JSONResponse(content=result)

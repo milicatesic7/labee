@@ -91,3 +91,7 @@ h3 {
     transform: translateY(0);
   }
 }
+
+.icon-img {
+  width: 128px;
+}

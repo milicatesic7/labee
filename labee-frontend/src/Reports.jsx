@@ -1,14 +1,16 @@
 import "./Reports.css";
 import { useState } from "react";
-import icon from "./assets/icon-base.png";
+import icon1 from "./assets/report1-icon.svg";
+import icon2 from "./assets/report2-icon.svg";
+import icon3 from "./assets/report3-icon.svg";
 import arrowd from "./assets/arrow-down.png";
 import arrowu from "./assets/arrow-up.png";
 
-function Report({ num, heading, open, onToggle, text, video }) {
+function Report({ num, heading, open, onToggle, text, video, icon }) {
   return (
     <div className="report">
       <div className="report-heading">
-        <img src={icon} alt="icon" className="icon-img" />
+        <img src={icon} alt={`icon-report-${num}`} className="icon-img" />
         <h2>Report {num}</h2>
       </div>
 
@@ -29,14 +31,15 @@ function Report({ num, heading, open, onToggle, text, video }) {
         {open && (
           <div className="report-hidden-active">
             <p className="report-text">{text}</p>
-
-            <iframe
-              width="300"
-              height="200"
-              src={video}
-              title={`YouTube video player ${num}`}
-              allowFullScreen
-            ></iframe>
+            <div className="video-wrapper">
+              <iframe
+                width="100%"
+                height="200"
+                src={video}
+                title={`YouTube video player ${num}`}
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
         )}
       </div>
@@ -51,6 +54,7 @@ export function Reports() {
     <section className="reports">
       <Report
         num={1}
+        icon={icon1}
         heading="Density of Solid Objects (Hydrostatic Balance)"
         text="Find the density of a solid object, no matter its shape, using a hydrostatic balance and Archimedes’ principle."
         video="https://www.youtube.com/embed/XWZExTDUKHc"
@@ -60,10 +64,9 @@ export function Reports() {
 
       <Report
         num={2}
+        icon={icon2}
         heading="Gravitational Acceleration (Simple Pendulum)"
-        text="Measure Earth’s gravitational acceleration by timing the motion of a simple pendulum. 
-        By recording how long one full swing takes and using the pendulum formula,
-         you can calculate the value of gravity."
+        text="Measure Earth’s gravitational acceleration by timing the motion of a simple pendulum. By recording how long one full swing takes and using the pendulum formula, you can calculate the value of gravity."
         video="https://www.youtube.com/embed/0D8XfW856nw?si=FaI26jTbsv2BC4hj"
         open={openReport === 2}
         onToggle={() => setOpenReport(openReport === 2 ? null : 2)}
@@ -71,10 +74,9 @@ export function Reports() {
 
       <Report
         num={3}
+        icon={icon3}
         heading="Wavelength of Light (Fraunhofer Diffraction)"
-        text="Determine the wavelength of light using diffraction through an 
-        optical grating. By measuring how light spreads into bright maxima at different angles,
-         you can calculate its wavelength with precision."
+        text="Determine the wavelength of light using diffraction through an optical grating. By measuring how light spreads into bright maxima at different angles, you can calculate its wavelength with precision."
         video="https://www.youtube.com/embed/clvFSXNVuOA?si=IDgkjbXBRpDlkEiR"
         open={openReport === 3}
         onToggle={() => setOpenReport(openReport === 3 ? null : 3)}

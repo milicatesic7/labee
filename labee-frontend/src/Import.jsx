@@ -1,16 +1,26 @@
 import { useState, useRef, useEffect } from "react";
 import { Results } from "./Results.jsx";
 import "./Import.css";
-import icon from "./assets/icon-base-small.png";
+import icon1 from "./assets/report1-icon.svg";
+import icon2 from "./assets/report2-icon.svg";
+import icon3 from "./assets/report3-icon.svg";
+import bee from "./assets/bee-fly.png";
 
 export function Import() {
   const [selectedReport, setSelectedReport] = useState(null);
-  const [imageObjects, setImageObjects] = useState([]);
+  const [imageObject, setImageObject] = useState(null);
   const [showResults, setShowResults] = useState(false);
-  const [backendData, setBackendData] = useState(null); // NOVO
+  const [backendData, setBackendData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fileInputRef = useRef(null);
   const resultsRef = useRef(null);
+
+  const reports = [
+    { id: "Report 1", label: "Report 1", icon: icon1 },
+    { id: "Report 2", label: "Report 2", icon: icon2 },
+    { id: "Report 3", label: "Report 3", icon: icon3 },
+  ];
 
   useEffect(() => {
     if (showResults && resultsRef.current) {
@@ -22,19 +32,13 @@ export function Import() {
   }, [showResults]);
 
   const handleImageUpload = (event) => {
-    const files = Array.from(event.target.files);
-
-    if (imageObjects.length + files.length > 6) {
-      alert("Error: Limit of images exceeded (max 6).");
-      return;
+    const file = event.target.files[0];
+    if (file) {
+      setImageObject({
+        file: file,
+        url: URL.createObjectURL(file),
+      });
     }
-
-    const newObjects = files.map((file) => ({
-      file: file,
-      url: URL.createObjectURL(file),
-    }));
-
-    setImageObjects((prev) => [...prev, ...newObjects]);
   };
 
   const handleRun = async () => {
@@ -42,30 +46,32 @@ export function Import() {
       alert("Warning: Please select a report type first!");
       return;
     }
-    if (imageObjects.length === 0) {
-      alert("Warning: Please upload at least one image!");
+    if (!imageObject) {
+      alert("Warning: Please upload an image!");
       return;
     }
 
-    const formData = new FormData();
-    imageObjects.forEach((obj) => {
-      formData.append("images", obj.file);
-    });
+    setIsLoading(true);
+    setShowResults(false);
 
-    const reportNumber = selectedReport.replace("Report ", "");
-    formData.append("report", reportNumber);
+    const formData = new FormData();
+    formData.append("images", imageObject.file);
+
+    let reportOption = "1";
+    if (selectedReport === "Report 2") reportOption = "2";
+    if (selectedReport === "Report 3") reportOption = "3";
+
+    formData.append("report", reportOption);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/analyze", {
+      const res = await fetch("http://localhost:8000/analyze", {
         method: "POST",
         body: formData,
       });
 
       if (res.ok) {
         const data = await res.json();
-        console.log("Rezultati sa bekenda:", data);
-
-        setBackendData(data); // NOVO
+        setBackendData(data);
         setShowResults(true);
       } else {
         alert("Server error.");
@@ -73,6 +79,8 @@ export function Import() {
     } catch (error) {
       console.error("Greška pri slanju:", error);
       alert("Could not connect to the server.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -80,16 +88,45 @@ export function Import() {
     fileInputRef.current.click();
   };
 
+  const BeeSwarm = () => {
+    const bees = Array.from({ length: 5 });
+    return (
+      <>
+        {bees.map((_, i) => {
+          const isLeftToRight = i % 2 === 0;
+          return (
+            <img
+              key={i}
+              src={bee}
+              className={`natural-bee ${isLeftToRight ? "ltr" : "rtl"}`}
+              style={{
+                top: `${20 + i * 15}%`,
+                animationDelay: `${i * 1.8}s`,
+                animationDuration: `${8 + Math.random() * 2}s`,
+                width: "100px",
+                zIndex: 9999,
+              }}
+              alt="bee"
+            />
+          );
+        })}
+      </>
+    );
+  };
+
   return (
     <>
-      <section className="lab-run-container">
+      {isLoading && <BeeSwarm />}
+
+      <section
+        className={`lab-run-container ${isLoading ? "blur-effect" : ""}`}
+      >
         <div className="lab-controls">
           <button className="btn-select" onClick={triggerFileInput}>
-            Select images
+            Select image
           </button>
           <input
             type="file"
-            multiple
             accept="image/*"
             ref={fileInputRef}
             onChange={handleImageUpload}
@@ -97,32 +134,46 @@ export function Import() {
           />
 
           <div className="report-list">
-            {["Report 1", "Report 2", "Report 3"].map((report) => (
+            {reports.map((report) => (
               <div
-                key={report}
-                className={`report-item ${selectedReport === report ? "active" : ""}`}
-                onClick={() => setSelectedReport(report)}
+                key={report.id}
+                className={`report-item ${selectedReport === report.id ? "active" : ""}`}
+                onClick={() => setSelectedReport(report.id)}
               >
-                <img src={icon} alt="icon" /> {report}
+                <img
+                  src={report.icon}
+                  alt={report.label}
+                  className="report-icon"
+                />
+                <span>{report.label}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="preview-grid">
-          {imageObjects.map((obj, index) => (
-            <div key={index} className="preview-box-wrapper">
-              <div className="preview-box">
-                <img src={obj.url} alt="upload" className="uploaded-img" />
+        <div className="preview-area">
+          <div
+            className={`preview-box ${!imageObject ? "empty" : ""}`}
+            onClick={triggerFileInput}
+          >
+            {imageObject ? (
+              <img
+                src={imageObject.url}
+                alt="upload"
+                className="uploaded-img"
+              />
+            ) : (
+              <div className="dash-placeholder">
+                <span className="plus-icon">+</span>
+                <span className="placeholder-text">Drop your lab photo</span>
               </div>
-              <span className="page-label">page: {index + 1}</span>
-            </div>
-          ))}
+            )}
+          </div>
         </div>
 
         <div className="run-area">
           <button className="btn-run" onClick={handleRun}>
-            Run Labee
+            RUN LABEE
           </button>
         </div>
       </section>
