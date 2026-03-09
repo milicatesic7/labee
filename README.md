@@ -61,7 +61,7 @@ http://localhost:8000/
 
 ---
 
-# 🤖 AI Feature: Gemini Integration
+#  AI Feature: Gemini Integration
 
 Labee integrates **Google Gemini 2.5 Flash** for precise analysis of laboratory data.
 
