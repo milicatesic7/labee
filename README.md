@@ -1,4 +1,4 @@
-# Welcome to Labee
+# Welcome to Labee 🐝
 
 ### Your Intelligent Lab Report Assistant
 
@@ -164,3 +164,4 @@ Open in your browser:
 ```
 http://localhost:5000/
 ```
+
